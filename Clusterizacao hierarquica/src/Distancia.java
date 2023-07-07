@@ -1,19 +1,28 @@
-import java.lang.Math;
+public class Distancia implements Comparable<Distancia>{
 
-public class Distancia {
+    private Cluster c1, c2;
+    private double distancia;
 
-    public double media;
-    //talvez declarar clusters aqui?
-
-    public Distancia(Ponto p, Ponto q) {
-        //repensar isso dps
-        this.media = Math.sqrt((p.x - q.x) + (p.y - q.y));
+    public Distancia(Cluster c1, Cluster c2){
+        this.c1 = c1;
+        this.c2 = c2;
+        this.distancia = calculaDistancia();
     }
 
-    //Clusterizar = achar o centroide entre dois clusters?
-    public double distanciaCentroides() {
-        double d = 0;
+    public double calculaDistancia(){
+        return Math.sqrt(
+                Math.abs(
+                        (c1.getCentroide().getX() - c2.getCentroide().getX()) +
+                                (c1.getCentroide().getY() - c2.getCentroide().getY())
+                ));
+    }
 
-        return d;
+    public int compareTo(Distancia d) {
+        if (distancia == d.distancia)
+            return 0;
+        else if (distancia > d.distancia)
+            return 1;
+        else
+            return -1;
     }
 }

@@ -1,20 +1,31 @@
 import java.util.Random;
-
 public class Ponto {
-    public int x;
-    public int y;
+
+    private double x;
+    private double y;
     Random r = new Random();
 
+    //Novo ponto
     public Ponto(int limite) {
         x = r.nextInt(limite);
         y = r.nextInt(limite);
     }
 
-    public void getCoordenada() {
-        System.out.println("(" + x + "," + y + ")");
+    //Novo centroide
+    public Ponto(double x, double y){
+        this.x = x;
+        this.y = y;
     }
 
-    public void getCentroide(Ponto[] p) {
-        //TO DO
+    public double getX(){
+        return x;
+    }
+
+    public double getY(){
+        return y;
+    }
+
+    public String toString(){
+        return "(" + x + "," + y + ")";
     }
 }
