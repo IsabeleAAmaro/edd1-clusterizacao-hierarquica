@@ -10,11 +10,7 @@ public class Distancia implements Comparable<Distancia>{
     }
 
     public double calculaDistancia(){
-        return Math.sqrt(
-                Math.abs(
-                        (c1.getCentroide().getX() - c2.getCentroide().getX()) +
-                                (c1.getCentroide().getY() - c2.getCentroide().getY())
-                ));
+        return Math.sqrt(Math.abs(Math.pow(c1.getCentroide().getX() - c2.getCentroide().getX(), 2) +  Math.pow(c1.getCentroide().getY() - c2.getCentroide().getY(), 2)));
     }
 
     public int compareTo(Distancia d) {
