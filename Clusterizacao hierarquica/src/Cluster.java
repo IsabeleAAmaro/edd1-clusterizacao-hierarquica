@@ -41,8 +41,7 @@ public class Cluster {
         double sumX = 0;
         double sumY = 0;
 
-        for (Ponto ponto : pontos)
-        {
+        for (Ponto ponto : pontos) {
             sumX += ponto.getX();
             sumY += ponto.getY();
         }
