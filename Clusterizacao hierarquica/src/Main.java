@@ -25,7 +25,7 @@ public class Main {
         //clusteriza o menor ponto com outro ponto da menor distancia
 
 
-        int indiceClusterIdeal;
+        int indiceClusterIdeal = 0;
         for (int i = 0; i < (n - 1); i++) {
             for (int j = i + 1; j < n; j++) {
                 Distancia distanciaDois = new Distancia(clusters[i], clusters[j]);
@@ -33,45 +33,20 @@ public class Main {
                 double menorDistancia = Math.min(distanciaUm.calculaDistancia(), distanciaDois.calculaDistancia());
 
                 if(distanciaUm.calculaDistancia() == menorDistancia) {
-                    //FAZ SENTIDO?????/
+                    //FAZ SENTIDO?????
                     indiceClusterIdeal = i + 1;
                 } else if(distanciaDois.calculaDistancia() == menorDistancia) {
                     //FAZ SENTIDO???
                     indiceClusterIdeal = j;
                 }
 
-
-
-
-
-
-
-                //guardar indice do menor ponto -> cluster associada á menor distancia?
-
-
-
-
-
-                //distancias[i] = distanciaClusters;
-                //Math.min(distancias[i].calculaDistancia(), distancias[j].calculaDistancia());
+                Cluster c = new Cluster(clusters[i], clusters[indiceClusterIdeal]);
+                clusters[i] = c;
+                //TODO: remover o antigo i do vetor de clusters
             }
         }
-
-        //Esse min é tapa buraco, porque é mais ou menos nesse modelo que eu to pensando, de calcular 2 distancias
-        //Talvez o melhor seja isso aqui (min de duas distancias), mas como eu boto a distancias pra calcularem a distancia do cluster x pro mais proximo que eu nao conheco?
-        //tipo seleciono um ponto aleatório e começo a achar o vizinho dele, faço isso até todo mundo ter vizinho?????
-
-        /*
-        while (n < clusters.length) {
-            //Como combinar clusters?
-            Cluster c = new Cluster()
-
-
-
-        }
-         */
     }
-
+}
             /*
         while (n < clusters.length) {
            Cluster cluster = new Cluster()
@@ -92,4 +67,16 @@ public class Main {
     }
 }
          */
-}
+
+//Esse min é tapa buraco, porque é mais ou menos nesse modelo que eu to pensando, de calcular 2 distancias
+//Talvez o melhor seja isso aqui (min de duas distancias), mas como eu boto a distancias pra calcularem a distancia do cluster x pro mais proximo que eu nao conheco?
+//tipo seleciono um ponto aleatório e começo a achar o vizinho dele, faço isso até todo mundo ter vizinho?????
+//guardar indice do menor ponto -> cluster associada á menor distancia?
+//distancias[i] = distanciaClusters;
+//Math.min(distancias[i].calculaDistancia(), distancias[j].calculaDistancia());
+        /*
+        while (n < clusters.length) {
+            //Como combinar clusters?
+            Cluster c = new Cluster()
+        }
+         */
