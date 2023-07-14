@@ -55,7 +55,7 @@ public class Cluster {
         this.centroide = new Ponto(mediaX, mediaY);
     }
 
-    //A gambiarra kkkkkk
+    //A gambiarra kkkkkk tá private-package mas acho q vou botar público depois
     static List<Cluster> criarClustersIndv(Ponto[] pontos) {
         List<Cluster> clustersIndv = new ArrayList<>();
 
