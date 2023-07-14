@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cluster {
     private Ponto pontos[];
     private Ponto centroide;
@@ -51,4 +54,17 @@ public class Cluster {
 
         this.centroide = new Ponto(mediaX, mediaY);
     }
+
+    //A gambiarra kkkkkk
+    static List<Cluster> criarClustersIndv(Ponto[] pontos) {
+        List<Cluster> clustersIndv = new ArrayList<>();
+
+        for (Ponto ponto : pontos) {
+            clustersIndv.add(new Cluster(ponto));
+        }
+
+        return clustersIndv;
+    }
+
+
 }
