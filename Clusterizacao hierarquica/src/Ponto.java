@@ -1,8 +1,9 @@
 import java.util.Random;
 public class Ponto {
 
-    private double x;
-    private double y;
+    //Atributos publicos, pra nao usar get
+    public double x;
+    public double y;
     Random r = new Random();
 
     //Novo ponto

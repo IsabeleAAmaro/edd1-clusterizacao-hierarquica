@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cluster {
-    private Ponto pontos[];
+    private Ponto[] pontos;
     private Ponto centroide;
     private int size;
 
@@ -45,8 +45,8 @@ public class Cluster {
         double sumY = 0;
 
         for (Ponto ponto : pontos) {
-            sumX += ponto.getX();
-            sumY += ponto.getY();
+            sumX += ponto.x;
+            sumY += ponto.y;
         }
 
         double mediaX = sumX / size;
@@ -56,6 +56,7 @@ public class Cluster {
     }
 
     //A gambiarra kkkkkk tá private-package mas acho q vou botar público depois
+    //Pesquisar oq é melhor: private-package ou public
     static List<Cluster> criarClustersIndv(Ponto[] pontos) {
         List<Cluster> clustersIndv = new ArrayList<>();
 

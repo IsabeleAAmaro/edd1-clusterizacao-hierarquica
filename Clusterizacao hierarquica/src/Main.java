@@ -28,13 +28,15 @@ public class Main {
             for(int i = 0; i < clusterList.size(); i++) {
                 for(int j = i + 1; j < clusterList.size(); j++) {
                     Distancia distancia = new Distancia(clusterList.get(i), clusterList.get(j));
-                    if(distancia.getDistancia() < menor_distancia) {
+                    if(distancia.distancia < menor_distancia) {
                         menor_distancia = distancia.getDistancia();
                         c1 = clusterList.get(i);
                         c2 = clusterList.get(j);
                     }
                 }
             }
+
+            //centroide dos crentroides, calcular média de dois centroides
 
             /*
             public void calculaCentroide(){
