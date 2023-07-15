@@ -1,6 +1,21 @@
 public class RestosDeCodigo {
 
     /*
+    //List<Distancia> distancias = new ArrayList<>();
+
+     */
+
+            //distancias.add(distancia);
+        /*
+        for (Distancia d : distancias)
+            if (d.distancia > menord.distancia)
+                menord = d;
+         */
+//"não precisa guardar as distâncias (a cada distância calculada pode verificar se é o menor e guardar numa variável)" Como???
+//pega a menor distancia
+
+
+    /*
     for (int i = 0; i < n; i++) {
             pontos[i] = new Ponto(n);
         }
@@ -99,5 +114,19 @@ public class RestosDeCodigo {
     //5 - clusteriza o c1 e c2 da menor no novo cluster
     //6 - remove o c1 e c2 antigos da lista de clusters
     //7 - adiciona o cluster na lista
+
+
+    /*
+            for(int i = 0; i < clusterList.size(); i++) {
+            for(int j = i + 1; j < clusterList.size(); j++) {
+                Distancia distancia = new Distancia(clusterList.get(i), clusterList.get(j));
+
+                if(distancia.distancia < menord.distancia) {
+                    menord = distancia;
+
+                }
+            }
+        }
+     */
 
 }

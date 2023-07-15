@@ -27,8 +27,8 @@ public class Cluster implements Comparable<Cluster> {
             this.pontos[i] = c2.pontos[j];
 
         this.raiz = new Arvbin<>(this, c1.getRaiz(), c2.getRaiz());
+        //Será que esse calcula centroide tá certo?
         calculaCentroide();
-
     }
 
     public int getSize(){
@@ -69,20 +69,6 @@ public class Cluster implements Comparable<Cluster> {
 
     //A gambiarra kkkkkk tá private-package mas acho q vou botar público depois
     //Pesquisar oq é melhor: private-package ou public
-    static List<Cluster> criarClustersIndv(Ponto[] pontos, int limite) {
-        List<Cluster> clustersIndv = new ArrayList<>();
-
-        for (int i = 0; i < limite; i++) {
-            pontos[i] = new Ponto(limite);
-        }
-
-        for (Ponto ponto : pontos) {
-            clustersIndv.add(new Cluster(ponto));
-        }
-
-        return clustersIndv;
-    }
-
 
     //???
     @Override

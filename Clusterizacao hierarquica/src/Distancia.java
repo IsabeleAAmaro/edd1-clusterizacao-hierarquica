@@ -33,6 +33,10 @@ public class Distancia implements Comparable<Distancia>{
         this.distancia = calculaDistancia();
     }
 
+    public Distancia() {
+        this.distancia = Double.MAX_VALUE;
+    }
+
     public double calculaDistancia(){
         return Math.sqrt(Math.abs(Math.pow(c1.getCentroide().x - c2.getCentroide().x, 2) +  Math.pow(c1.getCentroide().y - c2.getCentroide().y, 2)));
     }
