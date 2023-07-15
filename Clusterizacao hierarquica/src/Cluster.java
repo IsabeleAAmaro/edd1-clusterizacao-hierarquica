@@ -12,6 +12,7 @@ public class Cluster implements Comparable<Cluster> {
         this.pontos[0] = p;
         this.centroide = p;
         this.size = 1;
+        this.raiz = new Arvbin<>(this);
     }
 
     public Cluster(Cluster c1, Cluster c2){
@@ -25,11 +26,17 @@ public class Cluster implements Comparable<Cluster> {
         for (int i = c1.size, j = 0; j < c2.size; i++, j++)
             this.pontos[i] = c2.pontos[j];
 
+        this.raiz = new Arvbin<>(this, c1.getRaiz(), c2.getRaiz());
         calculaCentroide();
+
     }
 
     public int getSize(){
         return size;
+    }
+
+    public Arvbin<Cluster> getRaiz() {
+        return raiz;
     }
 
     public Ponto getCentroide(){
@@ -77,6 +84,7 @@ public class Cluster implements Comparable<Cluster> {
     }
 
 
+    //???
     @Override
     public int compareTo(Cluster o) {
         return 0;
