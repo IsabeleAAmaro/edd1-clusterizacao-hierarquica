@@ -1,5 +1,14 @@
 public class RestosDeCodigo {
 
+    /*
+    for (int i = 0; i < n; i++) {
+            pontos[i] = new Ponto(n);
+        }
+
+    Cluster[] clusters = new Cluster[n];
+    Distancia[] distancias = new Distancia[n * 2 - 1];
+     */
+
     //For original que criava clusters individuais
     /*
     for (int i = 0; i < n; i++) {
@@ -79,5 +88,16 @@ public class RestosDeCodigo {
             Cluster c = new Cluster()
         }
          */
+
+
+    //off: pq distancias nao podem ser vetor? Pq não colocar como função?
+    //Nosso calculo de distancias talvez esteja errado
+    //1 - faz pontos com aleatorio OK
+    //2 - inicializa como cluster OK
+    //3 - calcula distancias
+    //4 - pega a menor
+    //5 - clusteriza o c1 e c2 da menor no novo cluster
+    //6 - remove o c1 e c2 antigos da lista de clusters
+    //7 - adiciona o cluster na lista
 
 }

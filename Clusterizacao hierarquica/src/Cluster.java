@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cluster {
+public class Cluster implements Comparable<Cluster> {
     private Ponto[] pontos;
     private Ponto centroide;
     private int size;
+    private Arvbin<Cluster> raiz;
 
     public Cluster(Ponto p){
         this.pontos = new Ponto[1];
@@ -55,10 +56,18 @@ public class Cluster {
         this.centroide = new Ponto(mediaX, mediaY);
     }
 
+    public Ponto[] getPontos() {
+        return pontos;
+    }
+
     //A gambiarra kkkkkk tá private-package mas acho q vou botar público depois
     //Pesquisar oq é melhor: private-package ou public
-    static List<Cluster> criarClustersIndv(Ponto[] pontos) {
+    static List<Cluster> criarClustersIndv(Ponto[] pontos, int limite) {
         List<Cluster> clustersIndv = new ArrayList<>();
+
+        for (int i = 0; i < limite; i++) {
+            pontos[i] = new Ponto(limite);
+        }
 
         for (Ponto ponto : pontos) {
             clustersIndv.add(new Cluster(ponto));
@@ -68,4 +77,8 @@ public class Cluster {
     }
 
 
+    @Override
+    public int compareTo(Cluster o) {
+        return 0;
+    }
 }
