@@ -155,4 +155,21 @@ public class RestosDeCodigo {
     }
      */
 
+
+    /*
+        /*
+    //1 - faz pontos com aleatorio OK
+    //2 - inicializa como cluster OK
+    //3 - calcula distancias
+        - 1° Pega i (0) e j(1)
+        - 2° Calcula
+        - 3° Insere na lista de distancias
+        - 4°
+    //4 - pega a menor
+    //5 - clusteriza o c1 e c2 da menor no novo cluster
+    //6 - remove o c1 e c2 antigos da lista de clusters
+    //7 - adiciona o cluster na lista
+
+     */
+
 }
