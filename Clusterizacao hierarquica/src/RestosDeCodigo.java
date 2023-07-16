@@ -129,4 +129,30 @@ public class RestosDeCodigo {
         }
      */
 
+
+    /*
+    VERSAO 19H09:
+        public Distancia calculaDistancia() {
+        //Talvez o problema é essa distancia fake nao ter c1 e c2;
+        Distancia distancia_fake = new Distancia();
+
+        for (int i = 0; i < clusterList.size() - 1; i++) {
+            for (int j = i + 1; j < clusterList.size(); j++) {
+                Distancia distancia = new Distancia(clusterList.get(i), clusterList.get(j));
+                distancias.add(distancia);
+
+                //TODO: Implementar achar menor distancia sem fazer lista
+                distancia_fake = distancias.get(0);
+                //??????????? diz q nao tem coiso D
+                for (Distancia distancila : distancias)
+                    if (distancia.distancia < distancia_fake.distancia) {
+                        distancia_fake = distancia;
+                    }
+            }
+        }
+
+        return distancia_fake;
+    }
+     */
+
 }

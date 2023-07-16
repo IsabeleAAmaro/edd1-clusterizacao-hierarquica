@@ -75,4 +75,9 @@ public class Cluster implements Comparable<Cluster> {
     public int compareTo(Cluster o) {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return "X: " + this.centroide.x + " Y: " + this.centroide.y;
+    }
 }

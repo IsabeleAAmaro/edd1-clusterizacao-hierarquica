@@ -8,7 +8,9 @@ public class Naive {
     //2 - inicializa como cluster OK
     //3 - calcula distancias
         - 1° Pega i (0) e j(1)
-        - 2° Compara
+        - 2° Calcula
+        - 3° Insere na lista de distancias
+        - 4°
     //4 - pega a menor
     //5 - clusteriza o c1 e c2 da menor no novo cluster
     //6 - remove o c1 e c2 antigos da lista de clusters
@@ -16,13 +18,11 @@ public class Naive {
 
      */
 
-    //SIM, AINDA ESTÁ IMPRIMINDO VÁRIOS CLUSTERS COM O MESMO CENTROIDE
-
     /*
     Problemas vísiveis:
         - Árvore errada: Tento mais elementos do que deveria
         - Lista de distancias gigante, não sei se tá certo
-        - O NÚMERO DE CLUSTERS NÃO ESTÁ DIMINUINDO
+        - O NÚMERO DE CLUSTERS NÃO ESTÁ DIMINUINDO NO FINAL, por isso o loop não tá certo
         - Não acho q esteja removendo a distancia certa na remoção lá no método de clusterização
         - Está clusterizando
      */
@@ -35,7 +35,7 @@ public class Naive {
     //TODO: Onde enfio esses dois?
     public List<Cluster> clusterDesativados = new ArrayList<>();
     //TODO: Dps mudar pra alguma coisa tipo distanciaAux ou algo assim, já que é um placeholder
-    public List<Distancia> distancias = new ArrayList<>();
+    //public List<Distancia> distancias = new ArrayList<>();
 
 
     public Naive(int n) {
@@ -62,16 +62,16 @@ public class Naive {
         //Talvez o problema é essa distancia fake nao ter c1 e c2;
         Distancia distancia_fake = new Distancia();
 
-        for (int i = 0; i < clusterList.size(); i++) {
+        for (int i = 0; i < clusterList.size() - 1; i++) {
             for (int j = i + 1; j < clusterList.size(); j++) {
                 Distancia distancia = new Distancia(clusterList.get(i), clusterList.get(j));
-                distancias.add(distancia);
 
-                distancia_fake = distancias.get(0);
+                //TODO: Implementar achar menor distancia sem fazer lista
+                //distancia_fake = distancias.get(0);
                 //??????????? diz q nao tem coiso D
-                for (Distancia d : distancias)
-                    if (d.distancia < distancia_fake.distancia)
-                        distancia_fake = d;
+                    if (distancia.distancia < distancia_fake.distancia) {
+                        distancia_fake = distancia;
+                    }
             }
         }
 
@@ -79,6 +79,7 @@ public class Naive {
     }
 
     public void removeClusters(Cluster c1, Cluster c2) {
+        //TODO: Verificar se os clusters á serem removidos são da menor distancia
         clusterDesativados.add(c1);
         clusterDesativados.add(c2);
         clusterList.removeAll(clusterDesativados);
@@ -97,29 +98,35 @@ public class Naive {
     }
 
     public void clusteriza() {
-        int interacoes = this.n;
-            while(interacoes > 0) {
+        //TODO: Critério de parada diferente
+        //TODO: Remover AT ALL kkkkkkkkkkkkkkkkkk
+            while(clusterList.size() > 1) {
                 Distancia menordistancia = calculaDistancia();
                 Cluster cluster = new Cluster(menordistancia.getC1(), menordistancia.getC2());
-                //System.out.println("Centroide do falecido c1:" + menordistancia.getC1().imprimeCentroide());
-                //System.out.println("Centroide do falecido c2:" + menordistancia.getC2().imprimeCentroide());
 
                 clusterList.remove(menordistancia.getC1());
                 clusterList.remove(menordistancia.getC2());
-                distancias.remove(menordistancia);
+                //distancias.remove(menordistancia);
 
                 raizDosClusters = cluster;
                 clusterList.add(cluster);
 
-                mostraResultados(cluster);
+                //mostraResultados(cluster);
 
-                interacoes--;
+                //interacoes--;
             }
         }
 
     public void getRaizDosClusters() {
         System.out.println("Contagem de nós TOTAL, Árvore geral: " + raizDosClusters.getRaiz().contaNos());
-        //Precisa retornar uma árvore com valores btw
-        raizDosClusters.getRaiz();
+        raizDosClusters.getRaiz().mostra();
+    }
+
+    public List<Cluster> getClusterList() {
+        return clusterList;
+    }
+
+    public List<Cluster> getClusterDesativados() {
+        return clusterDesativados;
     }
 }
