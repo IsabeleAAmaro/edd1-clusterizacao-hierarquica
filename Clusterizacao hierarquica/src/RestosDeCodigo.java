@@ -180,7 +180,7 @@ public class RestosDeCodigo {
      */
 
     /*
-            Naive algoritmonNaive;
+        Naive algoritmonNaive;
         long tempoInicio = System.nanoTime();
         long tempoFinal = System.nanoTime();
         long duracao = (tempoFinal - tempoInicio) / 1000000; // Tempo em milissegundos

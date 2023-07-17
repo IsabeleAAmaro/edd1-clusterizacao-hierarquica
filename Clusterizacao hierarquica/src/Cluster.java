@@ -67,10 +67,6 @@ public class Cluster implements Comparable<Cluster> {
         return pontos;
     }
 
-    //A gambiarra kkkkkk tá private-package mas acho q vou botar público depois
-    //Pesquisar oq é melhor: private-package ou public
-
-    //???
     @Override
     public int compareTo(Cluster o) {
         return 0;
