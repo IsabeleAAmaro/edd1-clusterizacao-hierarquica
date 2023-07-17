@@ -1,5 +1,4 @@
 public class Distancia implements Comparable<Distancia>{
-
     private Cluster c1, c2;
     public double distancia;
 
@@ -33,8 +32,8 @@ public class Distancia implements Comparable<Distancia>{
         this.distancia = calculaDistancia();
     }
 
-    public Distancia() {
-        this.distancia = Double.MAX_VALUE;
+    public Distancia(double d) {
+        this.distancia = d;
     }
 
     public double calculaDistancia(){

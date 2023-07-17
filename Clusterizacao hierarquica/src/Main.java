@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        Naive AlgoritmoNaive = new Naive(1000);
+        Naive AlgoritmoNaive = new Naive(10);
         AlgoritmoNaive.clusteriza();
         AlgoritmoNaive.getRaizDosClusters();
         //TODO: Depois de trocar as remoções, executou em minutos enquanto tocava um video ainda!!

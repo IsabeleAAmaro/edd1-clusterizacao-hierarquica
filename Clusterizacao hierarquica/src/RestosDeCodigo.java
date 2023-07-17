@@ -172,4 +172,43 @@ public class RestosDeCodigo {
 
      */
 
+    /*
+        BufferedWriter writer;
+    long tempoInicial = System.nanoTime();
+    long tempoFinal = System.nanoTime();
+    long duracaoExecucao = (tempoFinal - tempoInicial) / 1000000; // Tempo em milissegundos
+     */
+
+    /*
+            Naive algoritmonNaive;
+        long tempoInicio = System.nanoTime();
+        long tempoFinal = System.nanoTime();
+        long duracao = (tempoFinal - tempoInicio) / 1000000; // Tempo em milissegundos
+        BufferedWriter writer = null;
+
+        try {
+            algoritmonNaive = new Naive(10);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        algoritmonNaive.clusteriza();
+
+        try {
+            writer = new BufferedWriter(new FileWriter("resultado.txt"));
+            writer.write("Tempo de execução: " + duracao + " ms");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+     */
+
 }
