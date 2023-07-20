@@ -3,34 +3,40 @@ import java.util.List;
 
 public class Naive {
 
-    public int n; // 10, 20, 30, 40, 50, 100, 200, 500, 1.000, 5.000, 10.000, 20.000, 50.000 e 100.000
-    public Ponto[] pontos;
-    public List<Cluster> listaClusters;
-    public List<Cluster> clusterDesativados = new ArrayList<>();
+    public int n; /* Tamanho do vetor de pontos e lista de clusters */
+    public Ponto[] pontos; /* Vetor que contém todos os pontos do plano cartesiano */
+    public List<Cluster> listaClusters; /* Lista de clusters */
+    public List<Cluster> clusterDesativados = new ArrayList<>(); /* Lista de clusters que foram removidos da lista original */
 
     public Naive(int n) {
         this.n = n;
         this.pontos = new Ponto[n];
-        listaClusters = criaClustersIndv(this.pontos, this.n);
+        listaClusters = criaClustersIndv(this.pontos, this.n); /* Chamando o método que gera os primeiros clusters */
     }
 
     public List<Cluster> criaClustersIndv(Ponto[] pontos, int limite) {
         List<Cluster> clustersIndv = new ArrayList<>();
 
+        /* Gera n pontos com o construtor que gera pontos com coordenadas aleatórias */
         for (int i = 0; i < limite; i++) {
-            pontos[i] = new Ponto(100);
+            pontos[i] = new Ponto(n);
         }
 
+        /* Constroi clusters individuais (que depois serão clusterizados entre si) com os pontos gerados */
         for (Ponto ponto : pontos) {
             clustersIndv.add(new Cluster(ponto));
         }
 
+        /* Retorna a lista que será atribuida á lista de clusters */
         return clustersIndv;
     }
 
-    public Distancia calculaDistancia() { //O(n²)???? n sei
+    /* Calcula as distancias entre clusters da lista e as compara para obter a menor distancia */
+    public Distancia calculaDistancia() {
+        /* Cria uma distancia cujo o valor é ______ */
         Distancia distancia_aux = new Distancia(Double.MAX_VALUE);
 
+        /* Pega dois clusters, calcula a distancia entre eles, e compara com a distancia auxiliar até encontrar a menor */
         for (int i = 0; i < listaClusters.size() - 1; i++) {
             for (int j = i + 1; j < listaClusters.size(); j++) {
                 Distancia distancia = new Distancia(listaClusters.get(i), listaClusters.get(j));
@@ -43,31 +49,25 @@ public class Naive {
         return distancia_aux;
     }
 
+    /* Remove da lista de clusters, os clusters que deixarão de existir porque serão fundidos, se tornando um novo cluster */
     public void removeClusters(Cluster c1, Cluster c2) {
         clusterDesativados.add(c1);
         clusterDesativados.add(c2);
-        listaClusters.removeAll(clusterDesativados); //O(1)
+        listaClusters.removeAll(clusterDesativados);
 
     }
 
     public void clusteriza() {
+        /* Enquanto existir mais de um cluster, continue a clusterizar */
         while(listaClusters.size() > 1) {
+            /* Obtem os dois clusters que possuem a menor distancia, ou seja, que serão ideais para agregação*/
             Distancia menordistancia = calculaDistancia();
+            /* Inicializa novo cluster */
             Cluster cluster = new Cluster(menordistancia.getC1(), menordistancia.getC2());
+            /* Remove os antigos clusters da lista de clusters */
             removeClusters(menordistancia.getC1(), menordistancia.getC2());
+            /* Adiciona o novo cluster a lista de clusters */
             listaClusters.add(cluster);
         }
-    }
-
-    public void getRaizDosClusters() {
-        System.out.println("Nos do cluster: " + getListaClusters().get(0).getRaiz().contaNos());
-    }
-
-    public List<Cluster> getListaClusters() {
-        return listaClusters;
-    }
-
-    public List<Cluster> getClusterDesativados() {
-        return clusterDesativados;
     }
 }
