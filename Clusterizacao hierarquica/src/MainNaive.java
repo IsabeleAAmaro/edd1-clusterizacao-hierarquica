@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class MainNaive {
     public static void main(String[] args)  {
-            int n = 50000; // 10, 20, 30, 40, 50, 100, 200, 500, 1.000, 5.000, 10.000, 20.000, 50.000 e 100.000
+            int n = 100; // 10, 20, 30, 40, 50, 100, 200, 500, 1.000, 5.000, 10.000, 20.000, 50.000 e 100.000
             int numExecucoes = 10;
 
             BufferedWriter writer = null;

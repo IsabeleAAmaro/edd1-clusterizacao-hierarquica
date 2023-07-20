@@ -6,24 +6,8 @@ public class Distancia implements Comparable<Distancia>{
         return c1;
     }
 
-    public void setC1(Cluster c1) {
-        this.c1 = c1;
-    }
-
     public Cluster getC2() {
         return c2;
-    }
-
-    public void setC2(Cluster c2) {
-        this.c2 = c2;
-    }
-
-    public double getDistancia() {
-        return distancia;
-    }
-
-    public void setDistancia(double distancia) {
-        this.distancia = distancia;
     }
 
     public Distancia(Cluster c1, Cluster c2){
