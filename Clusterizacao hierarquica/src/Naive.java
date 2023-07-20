@@ -14,12 +14,13 @@ public class Naive {
         listaClusters = criaClustersIndv(this.pontos, this.n); /* Chamando o método que gera os primeiros clusters */
     }
 
-    public List<Cluster> criaClustersIndv(Ponto[] pontos, int limite) {
+    //Complexidade: O(n²)
+    public static List<Cluster> criaClustersIndv(Ponto[] pontos, int limite) {
         List<Cluster> clustersIndv = new ArrayList<>();
 
-        /* Gera n pontos com o construtor que gera pontos com coordenadas aleatórias */
+        /* Gera n pontos com o construtor que gera pontos com coordenadas aleatórias, limite é igual a n e é também o bound do random*/
         for (int i = 0; i < limite; i++) {
-            pontos[i] = new Ponto(n);
+            pontos[i] = new Ponto(limite);
         }
 
         /* Constroi clusters individuais (que depois serão clusterizados entre si) com os pontos gerados */
@@ -31,6 +32,7 @@ public class Naive {
         return clustersIndv;
     }
 
+    //Complexidade O(n²)
     /* Calcula as distancias entre clusters da lista e as compara para obter a menor distancia */
     public Distancia calculaDistancia() {
         /* Cria uma distancia cujo o valor é ______ */
@@ -49,6 +51,7 @@ public class Naive {
         return distancia_aux;
     }
 
+    //Complexidade O(n + m)
     /* Remove da lista de clusters, os clusters que deixarão de existir porque serão fundidos, se tornando um novo cluster */
     public void removeClusters(Cluster c1, Cluster c2) {
         clusterDesativados.add(c1);
@@ -57,6 +60,7 @@ public class Naive {
 
     }
 
+    //Complexidade: O(n³)
     public void clusteriza() {
         /* Enquanto existir mais de um cluster, continue a clusterizar */
         while(listaClusters.size() > 1) {

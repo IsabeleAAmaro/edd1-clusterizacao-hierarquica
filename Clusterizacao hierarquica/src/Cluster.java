@@ -26,7 +26,7 @@ public class Cluster implements Comparable<Cluster> {
         for (int i = c1.size, j = 0; j < c2.size; i++, j++)
             this.pontos[i] = c2.pontos[j];
 
-        this.raiz = new Arvbin<>(this, c1.getRaiz(), c2.getRaiz());
+        this.raiz = new Arvbin<Cluster>(this, c1.getRaiz(), c2.getRaiz());
         //Será que esse calcula centroide tá certo?
         calculaCentroide();
     }

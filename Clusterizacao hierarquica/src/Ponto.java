@@ -8,8 +8,8 @@ public class Ponto {
 
     //Novo ponto
     public Ponto(int limite) {
-        x = r.nextInt(limite);
-        y = r.nextInt(limite);
+        x = r.nextInt(limite) + 1;
+        y = r.nextInt(limite) + 1;
     }
 
     //Novo centroide
