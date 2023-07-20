@@ -15,7 +15,7 @@ public class Naive {
     }
 
     //Complexidade: O(n²)
-    public static List<Cluster> criaClustersIndv(Ponto[] pontos, int limite) {
+    public List<Cluster> criaClustersIndv(Ponto[] pontos, int limite) {
         List<Cluster> clustersIndv = new ArrayList<>();
 
         /* Gera n pontos com o construtor que gera pontos com coordenadas aleatórias, limite é igual a n e é também o bound do random*/
